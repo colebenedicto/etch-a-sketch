@@ -23,19 +23,37 @@ createGrid();
 
 let slider = document.querySelector("#myRange");
 let sliderValue = document.querySelector(".sliderValue");
-sliderValue.textContent = "Grid size: " + slider.value + " x " + slider.value;
+sliderValue.innerHTML = "Grid size: " + slider.value + " x " + slider.value;
 
 slider.oninput = function() {
     sliderValue.innerHTML = textContent = "Grid size: " + this.value + " x " + this.value;
 }
-
-let gridSize = slider.value;
 
 slider.addEventListener('change', () => {
     deleteGrid();
     createGrid(slider.value);
 });
 
+// slider.value does not return to default at refresh
+
 function deleteGrid() {
     board.innerHTML = '';
 }
+
+// Buttons
+
+const solidColor = document.querySelector('.solid-color');
+const RGBColor = document.querySelector('.rgb-color');
+const shading = document.querySelector('.shading');
+const eraser = document.querySelector('.eraser');
+const clear = document.querySelector('.clear');
+
+eraser.addEventListener('click', e => {
+    console.log(e.target);
+});
+
+clear.addEventListener('click', () => {
+    board.childNodes.forEach(chlNode => {
+        chlNode.style.backgroundColor = 'transparent'; //change transparent to current background, if none to default background
+    });
+});

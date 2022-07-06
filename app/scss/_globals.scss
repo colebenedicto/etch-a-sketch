@@ -6,7 +6,7 @@ html {
 
 *, *::after, *::before {
   box-sizing: inherit;
-  // color: white;
+  color: white;
   margin: 0;
   padding: 0;
 }
@@ -17,8 +17,38 @@ a, a:visited, a:hover {
 
 button {
   font-family: 'Iceberg', 'sans-serif';
+  color: black;
 
   &:hover {
     background-color: white;
+  }
+}
+
+body {
+  background-color: rgb(42, 41, 41);
+  
+}
+
+.flex {
+  display: flex;
+
+  &-dir-col {
+    flex-direction: column;
+  }
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+
+  &-jc-sa {
+    justify-content: space-around;
+  }
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-ai-c {
+    align-items: center;
   }
 }
