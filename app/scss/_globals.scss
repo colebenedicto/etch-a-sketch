@@ -1,0 +1,24 @@
+html {
+  font-size: 100%; //lets the user control the zoom level in their browser
+  box-sizing: border-box; //makes the size of the elements include padding and border width in the final width
+  // position: relative;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+  // color: white;
+  margin: 0;
+  padding: 0;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none;
+}
+
+button {
+  font-family: 'Iceberg', 'sans-serif';
+
+  &:hover {
+    background-color: white;
+  }
+}

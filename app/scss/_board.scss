@@ -5,3 +5,17 @@
 }
 
 // Default style
+
+.individualPixel { // individual pixel in the grid
+  background-color: pink;
+  border-top: .0625rem solid gray;
+  border-right: .0625rem solid gray;
+}
+
+#leftCornerPixel {
+  border-left: .0625rem solid gray;
+}
+
+#bottomCornerPixel {
+  border-bottom: .0625rem solid gray;
+}

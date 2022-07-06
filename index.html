@@ -12,10 +12,14 @@
   <h1>Etch-a-Sketch</h1>
   <div class="toolbar">
     <button class="solid-color">Solid color</button>
-    <button class="rainbow-fill">Rainbow fill</button>
-    <button class="sketchmode">Sketch</button>
+    <button class="rainbow-fill">RBG fill</button>
+    <button class="shading">Shading mode</button>
     <button class="eraser">Eraser</button>
     <button class="clear">Clear</button>
+    <div class="sliderDiv">
+      <input type="range" min="2" max="64" value="21" class="slider" id="myRange">
+      <div class="sliderValue"></div>
+    </div>
   </div>
   <div class="container">
     <div class="board"></div>
