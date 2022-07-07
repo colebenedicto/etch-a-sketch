@@ -49,7 +49,7 @@ const eraser = document.querySelector('.eraser');
 const clear = document.querySelector('.clear');
 
 eraser.addEventListener('click', e => {
-    console.log(e.target);
+    console.log(e.target); 
 });
 
 clear.addEventListener('click', () => {
