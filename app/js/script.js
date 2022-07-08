@@ -1,22 +1,22 @@
-let board = document.querySelector(".board");
+let canvas = document.querySelector(".canvas");
 let indPix;
 let color;
-let boardColor;
+let canvasColor;
 
 function createGrid(size = 21) {
-    board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-    board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
     for (let i = 0; i < (size * size); i++) {
         let pixel = document.createElement("div");
+        pixel.setAttribute("class", "individualPixel");
         if (i % size === 0) { // scans for left corner pixels
-            pixel.setAttribute("id", "leftCornerPixel");
+            pixel.classList.add("leftCornerPixel");
         } 
         if (i >= (size * size) - size) { // scans for bottom corner pixel
-            pixel.setAttribute("id", "bottomCornerPixel");
+            pixel.classList.add("bottomCornerPixel");
         }
-        pixel.setAttribute("class", "individualPixel");
-        board.insertAdjacentElement("beforeend", pixel);
+        canvas.insertAdjacentElement("beforeend", pixel);
     }
     indPix = document.querySelectorAll('.individualPixel');
 }
@@ -41,7 +41,7 @@ slider.addEventListener('change', () => {
 // slider.value does not return to default at refresh
 
 function deleteGrid() {
-    board.innerHTML = '';
+    canvas.innerHTML = '';
 }
 
 // Buttons
@@ -67,7 +67,14 @@ eraser.addEventListener('click', e => {
 });
 
 clear.addEventListener('click', () => {
-    board.childNodes.forEach(chlNode => {
-        chlNode.style.backgroundColor = 'transparent'; //change transparent to current background, if none to default background
+    canvas.childNodes.forEach(chlNode => {
+        chlNode.style.backgroundColor = '#C0D6DF'; //change transparent to current background, if none to default background
     });
+});
+
+// Background Color Picker
+
+let bgColorPicker = document.getElementById('colorPickerBG');
+bgColorPicker.addEventListener('input', () => {
+    bgColorPicker.style.setProperty('--color',bgColorPicker.value)
 });

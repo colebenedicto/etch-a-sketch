@@ -7,7 +7,7 @@ html {
 *, *::after, *::before {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
-  color: white;
+  color: #2C363F;
   margin: 0;
   padding: 0;
 }
@@ -16,17 +16,28 @@ a, a:visited, a:hover {
   text-decoration: none;
 }
 
+body {
+  background-color: #dbe9ee;
+  font-family: 'Open sans', 'sans-serif';
+}
+
 button {
-  font-family: 'Iceberg', 'sans-serif';
-  color: black;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: none;
+  color: inherit;
+  font-weight: 500;
+  border: 0.0938rem solid #2C363F;
+  padding: 1.1875rem 1.5625rem;
+  text-align: right;
+  font: inherit;
+  width: 13.125rem;
+  height: 3.75rem;
 }
 
 button:hover {
-  background-color: white;
-}
-
-body {
-  background-color: #2a2929;
+  color: #FFA62B;
+  border: 0.0938rem solid #FFA62B;
 }
 
 .flex {
@@ -65,29 +76,114 @@ body {
           align-items: center;
 }
 
-.board {
-  height: 500px;
-  width: 500px;
+.container {
+  margin-top: 9.6875rem;
+  margin-left: 19.6875rem;
+}
+
+.container .canvas {
+  height: 700px;
+  width: 700px;
   display: -ms-grid;
   display: grid;
+  -webkit-box-shadow: 0px 0px 20px 5px rgba(44, 54, 63, 0.5);
+          box-shadow: 0px 0px 20px 5px rgba(44, 54, 63, 0.5);
+}
+
+.container .canvasDefaults {
+  margin: 2.8125rem 1.875rem 0 1.875rem;
+}
+
+#colorPickerBG {
+  border: none;
+  outline: none;
+  padding: 0;
+  width: 5.4375rem;
+  height: 1.5625rem;
+  position: relative;
+}
+
+#colorPickerBG::before {
+  content: '';
+  pointer-events: none;
+  width: 150%;
+  height: 150%;
+  background: var(--color);
+  border-radius: 50%;
+}
+
+.gridLineToggle .switch {
+  position: relative;
+  display: inline-block;
+  width: 2.8125rem;
+  height: 1.5625rem;
+  border-radius: 3.125rem;
+}
+
+.gridLineToggle .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.gridLineToggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #C0D6DF;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 3.125rem;
+}
+
+.gridLineToggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 1.0625rem;
+  width: 1.0625rem;
+  left: .3125rem;
+  top: .25rem;
+  background-color: #2C363F;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 3.125rem;
+}
+
+.gridLineToggle input:checked + .slider {
+  background-color: #FFA62B;
+}
+
+.gridLineToggle input:checked + .slider:before {
+  -webkit-transform: translateX(1.1875rem);
+  transform: translateX(1.1875rem);
 }
 
 .individualPixel {
-  background-color: pink;
-  border-top: .0625rem solid gray;
-  border-right: .0625rem solid gray;
+  background-color: #C0D6DF;
+  border-top: 0.0625rem solid #808080;
+  border-right: 0.0625rem solid #808080;
 }
 
-#leftCornerPixel {
-  border-left: .0625rem solid gray;
+.leftCornerPixel {
+  border-left: 0.0625rem solid #808080;
 }
 
-#bottomCornerPixel {
-  border-bottom: .0625rem solid gray;
+.bottomCornerPixel {
+  border-bottom: 0.0625rem solid #808080;
+}
+
+h1 img {
+  width: 13.9375rem;
+  margin-bottom: 1.5625rem;
 }
 
 .toolbar {
-  width: 300px;
+  margin-left: 22.5rem;
+  margin-top: 10rem;
+  width: 14.0625rem;
 }
 
 .toolbar .clear {
@@ -95,37 +191,45 @@ body {
   transition: all 300ms ease-in-out;
 }
 
-.slider {
+.toolbar .buttons {
+  gap: 1.875rem;
+}
+
+.sliderDiv {
+  text-align: center;
+}
+
+.sliderDiv .slider {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
-  width: 18.75rem;
-  height: .625rem;
-  background: #d3d3d3;
+  width: 13.125rem;
+  height: .3125rem;
+  background: #C0D6DF;
   outline: none;
-  opacity: 0.7;
   -webkit-transition: .2s;
   -webkit-transition: opacity .2s;
   transition: opacity .2s;
-  margin: 1.875rem 0;
+  margin: 2.8125rem 0 .625rem;
   border-radius: 5px;
 }
 
-.slider:hover {
+.sliderDiv .slider:hover {
   opacity: 1;
 }
 
-.slider::-moz-range-thumb {
-  width: 20px;
+.sliderDiv .slider::-moz-range-thumb {
+  width: .8125rem;
   /* Set a specific slider handle width */
-  height: 20px;
+  height: .8125rem;
   /* Slider handle height */
-  background: pink;
+  background: #2C363F;
   border-radius: 50%;
+  border: none;
   cursor: pointer;
 }
 
-.slider::-webkit-slider-thumb {
+.sliderDiv .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
@@ -133,5 +237,9 @@ body {
   background: pink;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.sliderDiv .sliderValue {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

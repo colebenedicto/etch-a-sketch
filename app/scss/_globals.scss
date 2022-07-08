@@ -6,7 +6,7 @@ html {
 
 *, *::after, *::before {
   box-sizing: inherit;
-  color: white;
+  color: $gunMetal;
   margin: 0;
   padding: 0;
 }
@@ -15,18 +15,27 @@ a, a:visited, a:hover {
   text-decoration: none;
 }
 
-button {
-  font-family: 'Iceberg', 'sans-serif';
-  color: black;
-
-  &:hover {
-    background-color: white;
-  }
+body {
+  background-color: $lightBluishGray;
+  font-family: 'Open sans', 'sans-serif';
 }
 
-body {
-  background-color: rgb(42, 41, 41);
-  
+button {
+  box-sizing: border-box;
+	background: none;
+	color: inherit;
+  font-weight: 500;
+	border: .0938rem solid $gunMetal;
+	padding: 1.1875rem 1.5625rem; 
+  text-align: right;
+	font: inherit;
+  width: 13.125rem;
+  height: 3.75rem;
+
+  &:hover {
+    color: $orangePeel;
+    border: .0938rem solid $orangePeel;
+  }
 }
 
 .flex {
