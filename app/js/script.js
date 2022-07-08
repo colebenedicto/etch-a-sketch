@@ -1,4 +1,7 @@
 let board = document.querySelector(".board");
+let indPix;
+let color;
+let boardColor;
 
 function createGrid(size = 21) {
     board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -15,6 +18,7 @@ function createGrid(size = 21) {
         pixel.setAttribute("class", "individualPixel");
         board.insertAdjacentElement("beforeend", pixel);
     }
+    indPix = document.querySelectorAll('.individualPixel');
 }
 
 createGrid();
@@ -26,7 +30,7 @@ let sliderValue = document.querySelector(".sliderValue");
 sliderValue.innerHTML = "Grid size: " + slider.value + " x " + slider.value;
 
 slider.oninput = function() {
-    sliderValue.innerHTML = textContent = "Grid size: " + this.value + " x " + this.value;
+    sliderValue.innerHTML = this.textContent = "Grid size: " + this.value + " x " + this.value;
 }
 
 slider.addEventListener('change', () => {
@@ -47,6 +51,16 @@ const RGBColor = document.querySelector('.rgb-color');
 const shading = document.querySelector('.shading');
 const eraser = document.querySelector('.eraser');
 const clear = document.querySelector('.clear');
+
+
+// Solid color
+
+
+indPix.forEach((pixNum) => {
+    pixNum.addEventListener('mousedown', () => {
+        pixNum.style.backgroundColor = 'black';
+    });
+});
 
 eraser.addEventListener('click', e => {
     console.log(e.target); 
