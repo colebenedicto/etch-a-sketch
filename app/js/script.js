@@ -1,7 +1,10 @@
 let canvas = document.querySelector(".canvas");
 let indPix;
 let color;
-let canvasColor;
+let canvasColor = document.getElementById('colorPickerBG').value;
+
+
+canvas.style.backgroundColor = canvasColor;
 
 function createGrid(size = 21) {
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -27,10 +30,10 @@ createGrid();
 
 let slider = document.querySelector("#myRange");
 let sliderValue = document.querySelector(".sliderValue");
-sliderValue.innerHTML = "Grid size: " + slider.value + " x " + slider.value;
+sliderValue.innerHTML = "Canvas size: " + slider.value + " x " + slider.value;
 
 slider.oninput = function() {
-    sliderValue.innerHTML = this.textContent = "Grid size: " + this.value + " x " + this.value;
+    sliderValue.innerHTML = this.textContent = "Canvas size: " + this.value + " x " + this.value;
 }
 
 slider.addEventListener('change', () => {
@@ -51,10 +54,9 @@ const RGBColor = document.querySelector('.rgb-color');
 const shading = document.querySelector('.shading');
 const eraser = document.querySelector('.eraser');
 const clear = document.querySelector('.clear');
+const slider = document.getElementsByClassName('siider');
 
-
-// Solid color
-
+    // Solid color
 
 indPix.forEach((pixNum) => {
     pixNum.addEventListener('mousedown', () => {
@@ -62,9 +64,17 @@ indPix.forEach((pixNum) => {
     });
 });
 
+    //RGB color
+
+
+
+    // Eraser button
+
 eraser.addEventListener('click', e => {
     console.log(e.target); 
 });
+
+    // Clear button
 
 clear.addEventListener('click', () => {
     canvas.childNodes.forEach(chlNode => {
@@ -72,9 +82,16 @@ clear.addEventListener('click', () => {
     });
 });
 
-// Background Color Picker
+    // Background Color Picker
 
 let bgColorPicker = document.getElementById('colorPickerBG');
 bgColorPicker.addEventListener('input', () => {
-    bgColorPicker.style.setProperty('--color',bgColorPicker.value)
+    bgColorPicker.style.setProperty('--color', bgColorPicker.value);
+    canvasColor = bgColorPicker.value;
+    // bgColorPicker.value = bgColorPicker.value;
 });
+
+// canvas.style.setProperty('--color', bgColorPicker.value);
+
+
+ 
