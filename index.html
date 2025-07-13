@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Etch-a-Sketch</title>
-  <link rel="stylesheet" href="dist/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <script src="app/js/script.js" defer></script>
-</head>
-<body>
-  <div class="content flex">
-    <div class="toolbar flex flex-dir-col">
-      <h1 id="logo">
-        <img src="images/design/logo.png" alt="Etch-a-Sketch">
-      </h1>
-      <div class="buttons flex flex-dir-col flex-ai-c">
-        <button class="solid-color">Color Draw</button>
-        <button class="rgb-color">RBG Draw</button>
-        <button class="shading">Shading</button>
-        <button class="eraser">Eraser</button>
-        <button class="clear">Clear</button>
-      </div>
-      <div class="sliderDiv">
-        <input type="range" min="2" max="64" value="21" class="slider" id="myRange">
-        <div class="sliderValue"></div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="canvas"></div>
-      <div class="canvasDefaults flex flex-jc-sb">
-        <div class="canvasBG">
-          <input type="color" id="colorPickerBG" value="#C0D6DF">
-          <label for="colorPickerBG">Background Color</label>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="dist/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Open+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="app/js/script.js" defer></script>
+  </head>
+  <body>
+    <div class="content flex">
+      <div class="toolbar flex flex-dir-col">
+        <h1 id="logo">
+          <img src="images/design/logo.png" alt="Etch-a-Sketch" />
+        </h1>
+        <div class="buttons flex flex-dir-col flex-ai-c">
+          <button class="solid-color">Color Draw</button>
+          <button class="rgb-color">RBG Draw</button>
+          <button class="shading">Shading</button>
+          <button class="eraser">Eraser</button>
+          <button class="clear">Clear</button>
         </div>
-        <div class="gridLineToggle">
-          <label class="switch">
-            <input type="checkbox" alt="toggle grid lines">
-            <span class="slider round"></span>
-            <p>Grid Lines</p>
-          </label>
+        <div class="sliderDiv">
+          <input
+            type="range"
+            min="2"
+            max="64"
+            value="21"
+            class="slider"
+            id="myRange"
+          />
+          <label for="myRange">Color Picker</label>
+          <div class="sliderValue"></div>
         </div>
       </div>
+      <div class="container">
+        <div class="canvas"></div>
+        <div class="canvasDefaults flex flex-jc-sb">
+          <div class="canvasBG">
+            <input type="color" id="colorPickerBG" value="#C0D6DF" />
+            <label for="colorPickerBG">Background Color</label>
+          </div>
+          <div class="gridLineToggle">
+            <label class="switch">
+              <input type="checkbox" alt="toggle grid lines" />
+              <span class="slider round"></span>
+              <p>Grid Lines</p>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
